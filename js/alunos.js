@@ -1,10 +1,20 @@
+
+import { aluno } from "../dados/listagem-alunos.js" ;
+
+  function gerarProximoId() {
+    const novoId = aluno[aluno.length - 1].id + 1;
+
+    return novoId;
+  }
+
 class Aluno {
   constructor(
+    id,
     nome,
     genero,
     dataNascimento,
     cpf,
-    fone,
+    telefone,
     email,
     cep,
     logradouro,
@@ -14,11 +24,12 @@ class Aluno {
     cidade,
     estado,
   ) {
+    this.id = id;
     this.nome = nome;
     this.genero = genero;
     this.dataNascimento = dataNascimento;
     this.cpf = cpf;
-    this.fone = fone;
+    this.telefone = telefone;
     this.email = email;
     this.cep = cep;
     this.logradouro = logradouro;
@@ -29,7 +40,8 @@ class Aluno {
     this.estado = estado;
   }
 }
-function cadastrarAluno(aluno) {
-console.log(aluno);
+function cadastrarAluno(estudante) {
+aluno.push(estudante);
 }
-export { Aluno, cadastrarAluno };
+
+export { Aluno, cadastrarAluno, gerarProximoId };

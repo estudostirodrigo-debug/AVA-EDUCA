@@ -32,4 +32,4 @@ const aluno = [
         bairro: "Centro"
     }
 ];
-export {aluno};
+export {aluno}; 
