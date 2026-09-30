@@ -16,6 +16,11 @@ const usuarios = [
         nome: "Mariana Oliveira Costa",
         email: "mariana.costa@edutech.com",
         senha: "edu2026"
+    },
+    {
+        nome: "Usuário Teste",
+        email: "teste@edutech.com",
+        senha: "123456"
     }
 ];
 export { usuarios };

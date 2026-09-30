@@ -3,7 +3,11 @@ function listarCursos(usuario) {
   const cursosDoUsuario = curso.filter((item) => {
     return usuario.email === item.emailProfessor;
   });
-  return cursosDoUsuario;
+  if (cursosDoUsuario.length > 0) {
+    return Promise.resolve(cursosDoUsuario);
+  } else {
+    return Promise.reject("Não há cursos cadastrados para esse usuário");
+  }
 }
 
 export { listarCursos };
