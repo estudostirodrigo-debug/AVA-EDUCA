@@ -1,3 +1,7 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -13,7 +17,7 @@ section {
 
     display: flex;
     flex-direction: column;
-    border: 2px solid black;
+    border: 2px solid blue;
     border-radius: 5px;
     align-items: center;
     margin: 10px;
@@ -23,13 +27,20 @@ section {
    
 }
 form {
-   
+
     display: flex;
     flex-direction: column;
     gap: 7px;
 }
+
+label {
+    text-align: center;
+    color:blue;
+    font-size: large;
+}
+
 input {
-    border: 2px solid black;
+    border: 1px solid blue;
     border-radius: 5px;
     width: 300px;
     padding: 5px;
@@ -37,20 +48,94 @@ input {
     text-align: center;
     background-color: rgb(248, 211, 3);
 }
+
 button {
     display: flex;
     margin: 25px auto;
     align-items: center;
+    font-size: large;
     justify-content: center;
-    background-color: greenyellow;
+    background-color: #16a34a;
     width: 200px;
     height: 40px;
-   
+    border: 1px solid blue;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
 #resetarSenha {
+    border: 1px solid blue;
     text-align: center;
     color: rgb(233, 16, 16);
-   font-size: x-large;
+    font-size: x-large;
+    padding: 5px;
+    margin: 5px;
+}
+
+
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 15px;
+        box-sizing: border-box;
+        background-size: cover;
+        background-position: center;
+    }
+
+    section {
+        width: 100%;
+        max-width: 400px;
+        box-sizing: border-box;
+        margin: 10px auto;
+        padding: 15px;
+    }
+
+    form {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    input {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 5px 0;
+    }
+
+    button {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    #resetarSenha {
+        font-size: 1.1rem;
+        overflow-wrap: anywhere;
+    }
+}
+
+
+@media (max-width: 380px) {
+
+    section {
+        padding: 10px;
+    }
+
+    input {
+        font-size: 0.9rem;
+    }
+
+    button {
+        max-width: 100%;
+    }
+
+    #resetarSenha {
+        font-size: 1rem;
+    }
 }
 
 
