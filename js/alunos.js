@@ -1,7 +1,10 @@
 import { aluno } from "../dados/listagem-alunos.js";
 
 function gerarProximoId() {
-  const novoId = aluno[aluno.length - 1].id + 1;
+  const alunosSalvos = sessionStorage.getItem("alunos");
+  const alunos = alunosSalvos ? JSON.parse(alunosSalvos) : aluno;
+
+  const novoId = alunos[alunos.length - 1].id + 1;
 
   return novoId;
 }
@@ -51,6 +54,8 @@ function cadastrarAluno(estudante) {
       estudante.id = gerarProximoId();
 
       aluno.push(estudante);
+
+      sessionStorage.setItem("alunos", JSON.stringify(aluno));
 
       resolve("Aluno cadastrado com sucesso!");
     } catch (erro) {
