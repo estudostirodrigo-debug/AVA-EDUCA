@@ -1,14 +1,18 @@
 import { criarToolbar } from "../js/toolbar.js";
-import { Aluno, cadastrarAluno, gerarProximoId } from "../js/alunos.js";
+import { Aluno, cadastrarAluno } from "../js/alunos.js";
 
 criarToolbar();
 
 const formulario = document.querySelector("#formCadastroAluno");
 
 const cep = document.querySelector("#cep");
+
 const logradouro = document.querySelector("#logradouro");
+
 const bairro = document.querySelector("#bairro");
+
 const cidade = document.querySelector("#cidade");
+
 const estado = document.querySelector("#estado");
 
 cep.addEventListener("blur", function () {
@@ -32,17 +36,13 @@ cep.addEventListener("blur", function () {
 
 formulario.addEventListener("submit", function (evento) {
   evento.preventDefault();
+const nome = document.querySelector("#nome");
 
-  const id = gerarProximoId();
+const genero = document.querySelector("#genero");
 
-  const nome = document.querySelector("#nome");
-  const genero = document.querySelector("#genero");
+const dataNascimento = document.querySelector("#dataNascimento");
 
-  const dataNascimento = document.querySelector("#dataNascimento");
-  const data = moment(dataNascimento.value, "DD/MM/YYYY", true);
-  console.log("Valor digitado:", dataNascimento.value);
-  console.log("Data válida:", data.isValid());
-  console.log("Data interpretada:", data.format("DD/MM/YYYY"));
+const data = moment(dataNascimento.value, "DD/MM/YYYY", true);
 
   if (
     data.isValid() &&
@@ -54,27 +54,30 @@ formulario.addEventListener("submit", function (evento) {
     return;
   }
 
-  const cpf = document.querySelector("#cpf");
+const cpf = document.querySelector("#cpf");
 
   if (cpf.value.length !== 11) {
     window.alert("Digite um CPF válido!");
     return;
   }
-  const telefone = document.querySelector("#telefone");
 
-  const telefoneNumerico = telefone.value.replace(/\D/g, "");
+const telefone = document.querySelector("#telefone");
+
+const telefoneNumerico = telefone.value.replace(/\D/g, "");
 
   if (telefoneNumerico.length < 10 || telefoneNumerico.length > 11) {
     window.alert("Digite um telefone válido!");
     return;
   }
-  const email = document.querySelector("#email");
 
-  const numero = document.querySelector("#numero");
-  const complemento = document.querySelector("#complemento");
+const email = document.querySelector("#email");
 
-  const aluno = new Aluno(
-    id,
+const numero = document.querySelector("#numero");
+
+const complemento = document.querySelector("#complemento");
+
+const aluno = new Aluno(
+    null,
     nome.value,
     genero.value,
     dataNascimento.value,
@@ -90,10 +93,13 @@ formulario.addEventListener("submit", function (evento) {
     estado.value,
   );
 
-  cadastrarAluno(aluno);
-
-  console.log(aluno);
-  console.log("Cadastro Enviado");
-
-  window.alert("Aluno cadastrado com sucesso!");
+  cadastrarAluno(aluno)
+    .then((mensagem) => {
+      console.log(aluno);
+      console.log("Cadastro Enviado");
+      window.alert(mensagem);
+    })
+    .catch((erro) => {
+      window.alert(erro);
+    });
 });

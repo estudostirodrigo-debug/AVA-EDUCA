@@ -1,11 +1,10 @@
+import { aluno } from "../dados/listagem-alunos.js";
 
-import { aluno } from "../dados/listagem-alunos.js" ;
+function gerarProximoId() {
+  const novoId = aluno[aluno.length - 1].id + 1;
 
-  function gerarProximoId() {
-    const novoId = aluno[aluno.length - 1].id + 1;
-
-    return novoId;
-  }
+  return novoId;
+}
 
 class Aluno {
   constructor(
@@ -40,8 +39,24 @@ class Aluno {
     this.estado = estado;
   }
 }
+
 function cadastrarAluno(estudante) {
-aluno.push(estudante);
+  return new Promise((resolve, reject) => {
+    try {
+      if (!estudante) {
+        reject("Erro ao cadastrar o aluno");
+        return;
+      }
+
+      estudante.id = gerarProximoId();
+
+      aluno.push(estudante);
+
+      resolve("Aluno cadastrado com sucesso!");
+    } catch (erro) {
+      reject("Erro ao cadastrar o aluno");
+    }
+  });
 }
 
 export { Aluno, cadastrarAluno, gerarProximoId };

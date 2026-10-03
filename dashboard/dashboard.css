@@ -1,0 +1,149 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.toolbar {
+    background-color: gold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: blue;
+    border: 1px solid blue;
+    margin-bottom: 5px;
+}
+
+.caixa-logo {
+    width: 220px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px rgb(8, 32, 212);
+    border-radius: 5px;
+}
+
+.caixa-logo img {
+    padding: 3px;
+    margin: auto;
+    width: 150px;
+    height: auto;
+    display: block;
+}
+
+.toolbar span {
+    background-color: gold;
+    text-transform: uppercase;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 3px;
+    border: solid 1px rgb(8, 32, 212);
+}
+
+.menu-lateral {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 160px;
+    position: fixed;
+    gap: 10px;
+}
+
+.menu-lateral a,
+.menu-lateral button {
+    width: 180px;
+    padding: 10px;
+    background-color: gold;
+    color: blue;
+    border: solid 1px blue;
+    border-radius: 3px;
+    cursor: pointer;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.2s ease,
+        box-shadow 0.3s ease;
+}
+
+.menu-lateral a:hover,
+.menu-lateral button:hover {
+    background-color: #16a34a;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+body {
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("../assets/img/logo-principal.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1300px;
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+
+
+main {
+    padding: 30px;
+    margin-left: 200px;
+}
+
+main h1 {
+    width: fit-content;
+    margin: 0 auto 30px;
+    padding: 10px 30px;
+    text-align: center;
+    color: blue;
+    background-color: gold;
+    border: 1px solid blue;
+    border-radius: 3px;
+}
+
+#cursos {
+    display: grid;
+    grid-template-columns: repeat(2, 280px);
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.card {
+    padding: 30px;
+    margin: 10px;
+    color: blue;
+    border: 1px solid rgb(8, 32, 212);
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.card p {
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+
+   .menu-lateral {
+        position: static;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+     main {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+     #cursos {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+}

@@ -1,0 +1,260 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    margin: 0;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("../assets/img/logo-principal.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1300px;
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+.toolbar {
+    background-color: gold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: blue;
+    border: 1px solid blue;
+    margin-bottom: 5px;
+}
+
+.caixa-logo {
+    width: 220px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px rgb(8, 32, 212);
+    border-radius: 5px;
+}
+
+.caixa-logo img {
+    padding: 3px;
+    margin: auto;
+    width: 150px;
+    height: auto;
+    display: block;
+}
+
+.toolbar span {
+    background-color: gold;
+    text-transform: uppercase;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 3px;
+    border: solid 1px rgb(8, 32, 212);
+}
+
+.menu-lateral {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 160px;
+    position: fixed;
+    gap: 10px;
+}
+
+.menu-lateral a,
+.menu-lateral button {
+    width: 180px;
+    padding: 10px;
+    background-color: gold;
+    color: blue;
+    border: solid 1px blue;
+    border-radius: 3px;
+    cursor: pointer;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.2s ease,
+        box-shadow 0.3s ease;
+}
+
+.menu-lateral a:hover,
+.menu-lateral button:hover {
+    background-color: #16a34a;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+.container-cursos {
+    position: relative;
+}
+
+.aviso-cursos {
+    position: absolute;
+    left: 190px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 230px;
+    padding: 12px;
+
+    background-color: gold;
+    color: blue;
+
+    border: 1px solid blue;
+    border-radius: 8px;
+
+    font-size: 0.9rem;
+    text-align: center;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease;
+}
+
+.container-cursos:hover .aviso-cursos {
+    visibility: visible;
+    opacity: 1;
+}
+
+main {
+    position: relative;
+    z-index: 1;
+    width: min(900px, 90%);
+    margin: 10px auto 50px;
+}
+
+main > h1 {
+    margin: 0 0 20px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+#formCadastroAluno {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: transparent;
+}
+
+#dados-pessoais,
+#endereço {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 25px;
+    padding: 28px 20px;
+    border: 1px solid rgba(0, 0, 255, 0.45);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+#dados-pessoais h2,
+#endereço h2 {
+    grid-column: 1 / -1;
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.campo label {
+    font-weight: 600;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid blue;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.65);
+    font-size: 1rem;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.campo input:focus,
+.campo select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+#formCadastroAluno button[type="submit"] {
+    align-self: center;
+    padding: 12px 50px;
+    border: 1px solid blue;
+    border-radius: 8px;
+    background-color: #2563eb;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease,
+        box-shadow 0.3s ease;
+}
+
+#formCadastroAluno button[type="submit"]:hover {
+    background-color: #16a34a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+
+    .menu-lateral {
+        position: static;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    main {
+        margin-left: 0;
+        padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    main h1 {
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 1.3rem;
+    }
+
+    form {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    input,
+    select,
+    textarea {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    section {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+}
