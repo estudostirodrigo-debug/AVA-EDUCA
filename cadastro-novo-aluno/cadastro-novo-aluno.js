@@ -95,11 +95,12 @@ const aluno = new Aluno(
 
   cadastrarAluno(aluno)
     .then((mensagem) => {
-      console.log(aluno);
-      console.log("Cadastro Enviado");
+      
       window.alert(mensagem);
+      formulario.reset();
     })
     .catch((erro) => {
       window.alert(erro);
     });
+   
 });
