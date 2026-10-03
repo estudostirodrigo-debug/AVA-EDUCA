@@ -19,4 +19,3 @@ const usuarios = [
   },
 ];
 export { usuarios };
-q
